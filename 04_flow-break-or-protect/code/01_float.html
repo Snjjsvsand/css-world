@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 300px;
+      height: 300px;
+      background:#bfa;
+      margin: 0 auto;
+      /* text-align: center; */
+      box-sizing: border-box;
+      padding: 10px;
+    }
+    .title {
+      width: 300px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">查看块级盒子背景色和::first-line行框盒子状态</div>
+  <div class="container">
+    <style>
+      .f1 {
+        float: left;
+        width: 100px;
+        height: 100px;
+        border: 1px solid red;
+      }
+      .d1 {
+        background: #f3f3f3;  
+      }
+      .d1::first-line {
+        background: rgb(255, 179, 179)
+      }
+
+    </style>
+    <div class="f1">
+      float: left
+    </div>
+    <div class="d1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima rem culpa debitis similique illum ad esse ullam harum praesentium repellat! Pariatur iste eos velit similique. Reiciendis temporibus voluptate quod nostrum?</div>
+  </div>
+
+  <div class="title">幽灵空白盒子导致浮动元素下面文字环绕</div>
+  <div class="container">
+    <style>
+      .f2 {
+        border: 1px solid red;
+        height: 100px;
+      }
+      .wrapper1 {
+        float: left;
+      }
+      .wrapper1 img {
+        height: 100px;
+        width: 100px;
+        /* vertical-align: middle; */
+      }
+      .d2 {
+        background: #f3f3f3;  
+      }
+      .d2::first-line {
+        background: rgb(255, 179, 179)
+      }
+    </style>
+    <div class="f2">
+      <div class="wrapper1">
+        <img src="./img/img.png" alt="">
+      </div>
+      1312312
+    </div>
+    <span>123123123</span>
+  </div>
+
+
+  <div class="title">左右固定的三栏布局</div>
+  <div class="container">
+    <style>
+      .wrapper2 {
+        border: 1px solid red;
+      }
+      .left , .right {
+        height: 50px;
+        width: 50px;
+        background: palegoldenrod;
+      }
+      .left {
+        float: left;
+      }
+      .right {
+        float: right;
+      }
+      .center {
+        background:paleturquoise;
+        height: 50px;
+        margin: 0 50px;
+      }
+    </style>
+    <div class="wrapper2">
+      <div class="left"></div>
+      <div class="right"></div>
+      <div class="center"></div>
+    </div>
+  </div>
+</body>
+</html>

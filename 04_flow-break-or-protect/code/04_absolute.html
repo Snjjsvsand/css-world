@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 300px;
+      height: 300px;
+      background:#bfa;
+      margin: 0 auto;
+      text-align: center;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+    .title {
+      width: 300px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">小图标定位</div>
+  <div class="container">
+    <style>
+      .icon {
+        position: absolute;
+        margin-top:-10px;
+      }
+    </style>
+    <div class="line">Lorem ipsum dolor sit amet consect. <img class="icon" src="./img/icon.svg"></div>
+  </div>
+  
+  <div class="title">表单提示信息及小星号</div>
+  <div class="container">
+    <style>
+      .form-item {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        /* position: relative; */
+      }
+      .form-label {
+        width: 50px;
+      }
+      .form-input {
+        width: 200px;
+      }
+      .form-input input {
+        width: calc(100% - 10px);
+      }
+      .star {
+        color: red;
+        position: absolute;
+      }
+      .description{
+        position: absolute;
+        font-size: 12px;
+        color: red;
+        margin-left: 10px;
+      }
+    </style>
+
+    <div class="form">
+      <div class="form-item">
+        <div class="star">*</div>
+        <span class="form-label">姓名</span>
+        <div class="form-input">
+          <input type="text">
+          <span class="description">必须输入姓名</span>
+        </div>
+      </div>
+      
+      <div class="form-item">
+        <div class="star">*</div>
+        <span class="form-label">姓名</span>
+        <div class="form-input">
+          <input type="text">
+          <span class="description">必须输入姓名</span>
+        </div>
+      </div>
+
+      <div class="form-item">
+        <div class="star">*</div>
+        <span class="form-label">姓名</span>
+        <div class="form-input">
+          <input type="text">
+          <span class="description">必须输入姓名</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="title">列表下拉定位</div>
+  <div class="container">
+    <style>
+      .list {
+        display: none;
+      }
+      .input:focus + .list {
+        left: 50%;
+        transform: translate(-50%);
+        position: absolute;
+        display: block;
+        height: 100px;
+        width: 170px;
+        border-radius: 3px;
+        background: #fff;
+      }
+    </style>
+    <div class="selector">
+      <input class="input" type="text">
+      <div class="list">
+      </div>
+    </div>
+  </div>
+
+  <div class="title">绝对定位相对特性配合幽灵空白节点实现水平居中</div>
+  <div class="container">
+    <style>
+      .w1 {
+        text-align: center;
+      }
+      .w1:before {
+        content: '';
+        display: inline-block;
+      }
+      .img1 {
+        position: absolute;
+        transform: translateX(-50%);
+        height: 100px;
+        width: 100px;
+      }
+    </style>
+    <div class="w1">
+      <img class="img1" src="./img/img.png" alt="">
+    </div>
+  </div>
+
+  <div class="title">固定定位相对特性配合幽灵空白节点实现主结构右外侧固定定位布局</div>
+  <div class="container">
+    <style>
+      .w2 {
+        height: 0;
+        border: 1px solid red;
+        text-align: right;
+      }
+      .w2:before {
+        content: '';
+        display: inline-block;
+      }
+      .img2 {
+        position: fixed;
+        bottom: 0;
+        margin: -10px 0 0 10px;
+      }
+    </style>
+    <div class="w2">
+      <img class="img2" src="./img/icon.svg" alt="">
+    </div>
+  </div>
+
+  <div class="title">absolute + margin 水平垂直居中</div>
+  <div class="container">
+    <style>
+      .w3 {
+        position: relative;
+        height: 100%;
+      }
+      .content {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: mintcream;
+      }
+    </style>
+    <div class="w3">
+      <div class="content"></div>
+    </div>
+  </div>
+</body>
+</html>

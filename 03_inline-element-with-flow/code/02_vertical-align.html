@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 300px;
+      height: 300px;
+      background:#bfa;
+      margin: 0 auto;
+      text-align: center;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+    .title {
+      width: 300px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">图片垂直居中</div>
+  <div class="container" style="line-height: 300px;">
+    <style>
+      .wrapper1{
+        height: 200px;
+        line-height: 200px;
+        border: 1px solid red;
+        font-size: 0;
+      }
+
+      .vertical-center-img {
+        vertical-align: middle;
+        height: 100px;
+        width: 100px;
+      }
+
+    </style>
+    <div class="wrapper1">
+      <img class="vertical-center-img" src="./img/img.png" alt="">
+    </div>
+  </div>
+
+  <div class="title">幽灵空白节点基线对齐导致容器高度超过line-height</div>
+  <div class="container">
+    <style>
+      .wrapper2{
+        line-height: 32px;
+        border: 1px solid red;
+      }
+      .wrapper2 span {
+        font-size: 24px;
+        border: 1px solid red;
+      }
+    </style>
+    <div class="wrapper2">x
+      <span>x文字X</span>
+    </div>
+  </div>
+
+  <div class="title">幽灵空白节点基线对齐导致图片底部有空隙</div>
+  <div class="container">
+    <style>
+      .wrapper3 {
+        width: 200px;
+        margin: 10px auto;
+        border: 1px solid red;
+      }
+
+      .wrapper3 img {
+        height: 100px;
+      }
+    </style>
+    <div class="wrapper3">x
+      <img src="./img/img.png" alt="">
+    </div>
+  </div>
+
+  <div class="title">幽灵空白节点基线对齐限制图片 margin 定位</div>
+  <div class="container">
+    <style>
+      .wrapper4 {
+        width: 200px;
+        height: 200px;
+        margin: 10px auto;
+        border: 1px solid red;
+      }
+      .wrapper4 img {
+        height: 100px;
+        margin-top: -999px;
+      }
+    </style>
+    <div class="wrapper4">x
+      <img src="./img/img.png" alt="">
+    </div>
+  </div>
+
+  <div class="title">复杂案例</div>
+  <div class="container">
+    <style>
+      .wrapper5 {
+        margin: 10px auto;
+        border: 1px solid red;
+        /* height: auto; */
+        line-height: 0;
+      }
+      .wrapper5 img {
+        width: 96px;
+        /* vertical-align: middle; */
+      }
+      .wrapper5 i {
+        width: 96px;
+        display: inline-block;
+        /* vertical-align: middle; */
+        height: 0;
+        border-top: 1px solid red;
+      }
+    </style>
+    <div class="wrapper5">
+      <img src="./img/img.png" alt=""><img src="./img/img.png" alt="">
+      <img src="./img/img.png" alt=""><i></i>
+      <i>&nbsp</i>
+      <i>&nbsp</i>
+    </div>
+  </div>
+
+  <div class="title">图标水平对齐</div>
+  <div class="container">
+    <style>
+      .box {
+        line-height: 20px;
+      }
+      .icon {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        background: url(./img/icon.svg) no-repeat;
+        background-size: 100% 100%;
+        text-indent: -999px;
+      }
+      .icon::before {
+        content: '\3000';
+
+      }
+    </style>
+    <div class="box">
+      <p>文字 <i class="icon"></i></p>
+    </div>
+  </div>
+</body>
+</html>
